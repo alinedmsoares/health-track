@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Dashboard | Health Track</title>
+</head>
+
+<body>
+
+    <nav role="navigation" class="menu-mobile">
+        <div id="menuToggle">
+
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <ul id="menu">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li>
+                    <a href="pesos/pesos.html">Pesos</a>
+                </li>
+                <li>
+                    <a href="pressoes/pressoes.html">Pressão arterial</a>
+                </li>
+                <li>
+                    <a href="alimentos/alimentos.html">Alimentação</a>
+                </li>
+                <li>
+                    <a href="atividades/atividades.html">Atividades</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="menu">
+
+        <ul>
+            <li><a href="dashboard.html" class="selected">Dashboard</a></li>
+            <li>
+                <a href="pesos/pesos.html">Pesos</a>
+            </li>
+            <li>
+                <a href="pressoes/pressoes.html">Pressão arterial</a>
+            </li>
+            <li>
+                <a href="alimentos/alimentos.html">Alimentação</a>
+            </li>
+            <li>
+                <a href="atividades/atividades.html">Atividades</a>
+            </li>
+        </ul>
+
+        <button><a href="index.html">Sair</a></button>
+    </div>
+
+    <div class="main dashboard">
+
+        <div class="header">
+
+            <div class="text">
+
+                <div class="title">Olá, Aline</div>
+                <div class="subtitle">19 anos</div>
+
+            </div>
+
+            <div class="foto" onclick="perfil()"></div>
+
+        </div>
+
+        <div class="card-list">
+
+            <div class="item" onclick="listarPeso()">
+
+                <div class="text">IMC</div>
+
+                <div class="info">20.2</div>
+
+                <div class="text-light">Peso ideal</div>
+
+            </div>
+
+            <div class="item" onclick="listarPeso()">
+
+                <div class="text">Peso</div>
+
+                <div class="info">60,2 Kg</div>
+
+                <div class="text-light">30/06/2021</div>
+
+            </div>
+
+            <div class="item" onclick="listarPressao()">
+
+                <div class="text">Pressão arterial</div>
+
+                <div class="info">12/8</div>
+
+                <div class="text-light">30/06/2021</div>
+
+            </div>
+
+            <div class="item" onclick="perfil()">
+
+                <div class="text">Altura</div>
+
+                <div class="info">1,60 m</div>
+
+                <div class="text-light"></div>
+
+            </div>
+
+        </div>
+
+        <div class="grafico">
+            <div class="chartContainer" style="height: 400px; width: 80%;"></div>
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
+
+<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        CanvasJS.addColorSet("rosa", [
+            "#ff6f91"
+        ]);
+
+        $(".chartContainer").CanvasJSChart({
+            backgroundColor: "#f5f5f5",
+            colorSet: "rosa",
+            title: {
+                text: "Histórico de pesagem",
+                fontFamily: "tahoma",
+                fontSize: 30
+
+            },
+            axisY: {
+                title: "Peso",
+                includeZero: false
+            },
+            axisX: {
+                interval: 1
+            },
+            data: [{
+                type: "line",
+                toolTipContent: "{label}: {y}Kg",
+                dataPoints: [{
+                    label: "Janeiro",
+                    y: 65.9
+                }, {
+                    label: "Fevereiro",
+                    y: 65.0
+                }, {
+                    label: "Março",
+                    y: 63.3
+                }, {
+                    label: "Abril",
+                    y: 61.8
+                }, {
+                    label: "Maio",
+                    y: 61.3
+                }, {
+                    label: "Junho",
+                    y: 60.2
+                }]
+            }]
+        });
+    });
+
+    function perfil() {
+        window.location.href = "perfil.html";
+    }
+
+    function listarPeso() {
+        window.location.href = "pesos/pesos.html";
+    }
+
+    function listarPressao() {
+        window.location.href = "pressoes/pressoes.html";
+    }
+</script>
