@@ -835,4 +835,7 @@ ol {
     .title {
         font-size: 1.5em;
     }
+    .main {
+        width: fit-content;
+    }
 }
